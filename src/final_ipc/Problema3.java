@@ -33,7 +33,7 @@ class Problema3 {
                 MayorPeso = MayorPeso <= 0 ? PesoVaca[i] : MayorPeso + PesoVaca[i];
                 
                 
-                if (MayorPeso < PesoCamion) {
+                if (MayorPeso <= PesoCamion) {
                     System.out.println("Vaca No " + (i+1));
                     SumaProduccion = SumaProduccion + Produccion[i];
                     PesoMaximo = MayorPeso;
@@ -60,7 +60,7 @@ class Problema3 {
                 MayorPeso = MayorPeso <= 0 ? PesoVaca[i] : MayorPeso + PesoVaca[i];
                 
                 
-                if (MayorPeso < PesoCamion) {
+                if (MayorPeso <= PesoCamion) {
                     System.out.println("Vaca No " + (i+1));
                     SumaProduccion = SumaProduccion + Produccion[i];
                     PesoMaximo = MayorPeso;
@@ -73,39 +73,41 @@ class Problema3 {
         }
         
         if (opc == 2){
+           
+            int totvac;
             
             System.out.println("Cuantas vacas desea ingresar?");
-            int totvac = lee.nextInt();
+            totvac = lee.nextInt();
             
             System.out.println("Ingrese el peso maximo que soporta el camion");
             PesoCamion = lee.nextInt();
             
-            PesoVaca = new int [] {totvac+1};
-            Produccion = new int [] {totvac+1};
+            PesoVaca = new int[totvac];
+            Produccion = new int[totvac];
             
-            for (int i = 0; i < totvac; i++) {
-                
-                System.out.println("Ingrese Peso Vaca No " + i);
-                PesoVaca[i] = lee.nextInt();
-                System.out.println("Ingrese Produccion Vaca No " + i);
-                Produccion[i] = lee.nextInt();
-                
-            }
-            
-             int MayorPeso = PesoVaca[0], PesoMaximo = MayorPeso;
+            int MayorPeso = PesoVaca[0], PesoMaximo = MayorPeso;
             int SumaProduccion=0;
             
+            for (int p = 0; p < totvac; p++) {
+                System.out.println("Vaca No " + (p+1));
+                System.out.println("Ingrese Peso ");
+                PesoVaca[p] = lee.nextInt();
+                System.out.println("Ingrese Produccion");
+                Produccion[p] = lee.nextInt();
+                
+            }
+        
             System.out.println("Vacas usadas:");
             
             for (int i = 0; i < PesoVaca.length; i++) {
                 MayorPeso = MayorPeso <= 0 ? PesoVaca[i] : MayorPeso + PesoVaca[i];
                 
-                
-                if (MayorPeso < PesoCamion) {
+                if (MayorPeso <= PesoCamion) {
                     System.out.println("Vaca No " + (i+1));
                     SumaProduccion = SumaProduccion + Produccion[i];
                     PesoMaximo = MayorPeso;
                 }
+                
             }
             
             System.out.println("El mejor peso es " + PesoMaximo);
