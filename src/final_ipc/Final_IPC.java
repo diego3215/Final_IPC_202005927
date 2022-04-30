@@ -42,12 +42,12 @@ public class Final_IPC {
                     prom3.Prom3();  
                     break;
                 case 4:
-                    System.out.println("------Gracias por jugar-----");
+                    System.out.println("--Gracias usar el programa--");
                     salir=true;
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Por favor seleccione una opcion entre 1 y 3");
+                    System.out.println("Por favor seleccione una opcion entre 1 y 4");
                     
             }
         }
